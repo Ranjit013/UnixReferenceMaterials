@@ -1,0 +1,38 @@
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx Useful Find Commands that can be use for daily purposes xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+
+
+#To find files with maxdepth of either 1, 2 or n
+command: find . -maxdepth 1/2/..../n
+======================================================================================================
+
+# To just find them and printout with size of 0:
+find . -maxdepth 1 -name '[!.]*' -size 0 -printf 'Name: %16f Size: %6s\n'
+
+======================================================================================================
+
+#To delete them, it may be modified to use
+find . -maxdepth 1 -name '[!.]*' -size 0 -printf 'Name: %16f Size: %6s\n' | xargs rm
+
+======================================================================================================
+
+#To find all the file with an extension of *.txt files but ignore foo.txt
+ find . -type f \( -iname "*.txt" ! -iname "foo.txt" \)
+
+ ======================================================================================================
+
+#To delete file add -delete or -exec your-delete-command-here option.
+ find . -type f \( -iname "*.txt" ! -iname "foo.txt" \) -delete
+
+ ======================================================================================================
+
+ #To select folder or dirs use -type d, in this example, find all folders and ignore foo and bar folder :
+ find . -type d \( ! -iname "foo" ! -iname "bar" \)
+
+ ======================================================================================================
+
+
+#To delete all the folders except foo and bar
+ find . -type d \( ! -iname "foo" ! -iname "bar" \) -execdir rm -rfv {} +
+
+ ======================================================================================================

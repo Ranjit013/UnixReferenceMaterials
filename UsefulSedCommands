@@ -1,0 +1,67 @@
+
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx Important SED Commands xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+
+ #Remove all blank lines:
+ sed '/^$/d' file-name
+
+=====================================================================================================================
+# It is possible that blank lines actually contain spaces. To remove these blank lines too use:
+sed '/^ *$/d' file-name
+
+=====================================================================================================================
+
+# To remove all lines containing the word 'remove'
+sed '/remove/d' file-name
+
+=====================================================================================================================
+# The 's' function will substitute one string for another. To correct a wide-spread spelling mistake use:
+sed 's/wizzard/wizard/' file-name
+
+=====================================================================================================================
+
+# Notice in this example that I have not specified a line to match, in which case 'sed' assumes every line of the file. In this example,
+# it would be possible to select only the lines that contain 'wizzard', but that would be pointless.
+#
+# Sometimes it may make sense to do so:
+
+# % cat eg en:color us:color %
+
+sed '/en/s/color/colour/'
+# eg en:colour us:color %
+=====================================================================================================================
+
+#To replace all occurrences on each line use the 'g' (for global) argument.
+sed 's/wizzard/wizard/g' file-name
+
+=====================================================================================================================
+
+# Convert case. In this example I convert a file to upper case.
+sed 'y/abcdefghijklmnopqrstuvwxyz/ABCDEFGHIJKLMNOPQRSTUVWXYZ/' file-name
+# No lines are specified so the 'y' function is applied to every line in the file. 'a' is replaced with 'A', 'b' with 'B', and so on.
+
+=====================================================================================================================
+
+# Limitations
+# 'sed' uses regular expressions for its pattern matching. It supports only basic regular expressions, not extended regular expressions. 'sed' will therefore not recognise the special characters '?' and '+'.
+# 'grep' with 'sed'
+# If you call 'sed' with the option '-n' it will not output each line as it usually does. This can be used in conjunction with the 'p'
+# function, which explicitly outputs the current line. A grep-like functionality can be obtained with:
+
+sed - n '/re/p' file
+# where 're' is the regular expression to be searched for.
+=====================================================================================================================
+
+# The function '=' prints the line number instead of the line text. A useful variant of the 'grep'-like example is to search a file for a
+# regular expression and print out the line numbers where that expression is found.
+
+sed -n '/re/=' file
+
+==================================================================================================================
+
+# By specifying a range of line numbers instead of a regular expression, it is possible to display the first n lines of a file. To
+# display the first 15 lines use:
+sed -n '1,15 p' file
+
+=================================================================================================================
