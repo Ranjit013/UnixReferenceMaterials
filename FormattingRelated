@@ -1,0 +1,6 @@
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx UsefulFormattingCommands xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+#To prettify the json object
+python -m json.tool myfile.json
+
+#To Extract json key value from a json object
+sed -E 's/\},\s*\{/\},\n\{/g' myjson.json | grep -E '"name" : "[A-Za-z0-9_]*"|"path" : "[A-Za-z0-9\/_]*"'
