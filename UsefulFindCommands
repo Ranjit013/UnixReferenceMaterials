@@ -36,3 +36,13 @@ find . -maxdepth 1 -name '[!.]*' -size 0 -printf 'Name: %16f Size: %6s\n' | xarg
  find . -type d \( ! -iname "foo" ! -iname "bar" \) -execdir rm -rfv {} +
 
  ======================================================================================================
+
+ #To find the files accessed on 25/Sept/2017
+ $ find . -type f -newerat 2017-09-25 ! -newerat 2017-09-26
+
+ ======================================================================================================
+
+ #To use find command with regex expression
+ find . -maxdepth 1 -regextype posix-extended -regex '.*test.*|.*vimtest'
+
+ ======================================================================================================
