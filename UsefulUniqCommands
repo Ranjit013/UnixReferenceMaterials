@@ -1,0 +1,8 @@
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx Important UNIQ Commands xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+To Give Correct output the data should be sorted
+=========================================================================================================================
+less SampleCSVFile_2kb.csv |sort| uniq -ic // -c Give me the count, -i ignoring the case
+
+=========================================================================================================================
+less SampleCSVFile_2kb.csv |sort| uniq -d // -d Give only the duplicate rows
+=========================================================================================================================
