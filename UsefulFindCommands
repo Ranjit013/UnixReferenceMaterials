@@ -46,3 +46,9 @@ find . -maxdepth 1 -name '[!.]*' -size 0 -printf 'Name: %16f Size: %6s\n' | xarg
  find . -maxdepth 1 -regextype posix-extended -regex '.*test.*|.*vimtest'
 
  ======================================================================================================
+
+
+ #using find command to pass parameters i.e. the files on which grep commands would do the search
+ find . -type f -regextype posix-extended -regex '.*names.txt|.*data.txt' | xargs grep --color=auto -E 'UG_1456|3'
+
+ ======================================================================================================
