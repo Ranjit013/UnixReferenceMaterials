@@ -5,8 +5,7 @@ Global
 :saveas file  # save file as
 :close        # close current pane
 
-
-
+============================================================================================================================================
 
 Cursor movement
 h        # move cursor left
@@ -14,7 +13,7 @@ j        # move cursor down
 k        # move cursor up
 l        # move cursor right
 H        # move to top of screen
-M        # move to middle of screen
+M        # move to middle of screenzz
 L        # move to bottom of screen
 w        # jump forwards to the start of a word
 W        # jump forwards to the start of a word (words can contain punctuation)
@@ -38,6 +37,9 @@ Ctrl + b # move back one full screen
 Ctrl + f # move forward one full screen
 Ctrl + d # move forward 1/2 a screen
 Ctrl + u # move back 1/2 a screen
+
+============================================================================================================================================
+
 Insert mode - inserting/appending text
 i        # insert before the cursor
 I        # insert at the beginning of the line
@@ -82,6 +84,9 @@ ib       # inner block with ()
 iB       # inner block with {}
 Esc      # exit visual mode
 Ctrl + v # start visual block mode
+
+============================================================================================================================================
+
 Visual commands
 >       # shift text right
 <       # shift text left
@@ -107,6 +112,10 @@ d$       # delete (cut) to the end of the line
 d^       # delete (cut) to the first non-blank character of the line
 d0       # delete (cut) to the begining of the line
 x        # delete (cut) character
+
+
+============================================================================================================================================
+
 Search and replace
 /pattern       # search for pattern
 ?pattern       # search backward for pattern
@@ -157,3 +166,4 @@ gT or :tabprev or :tabp # move to the previous tab
 :tabclose or :tabc      # close the current tab and all its windows
 :tabonly or :tabo       # close all tabs except for the current one
 :tabdo command          # run the command on all tabs (e.g. :tabdo q - closes all opened tabs)
+============================================================================================================================================
