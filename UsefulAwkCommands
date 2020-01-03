@@ -373,14 +373,17 @@ SELECTIVE DELETION OF CERTAIN LINES:
  awk '!a[$0]++'                     # most concise script
  awk '!($0 in a){a[$0];print}'      # most efficient script
 =============================================================================================================
-#To check based on some condition
-awk -F, '{if($7==-99)print $0}'
 
-=============================================================================================================
 #To check based on some condition
 awk -F, '{if($7==-99)print $0}'
+#if we are checking the value of a string in awk script with null or empty use this condition.
+if (length(val) == 0)
 
 =============================================================================================================
 #To check based on some condition based on integers
 awk -F, -v x=100 '$5>=x {print$0}' SampleCSVFile_2kb.csv
 =============================================================================================================
+#Simulate vlook commands using awk
+awk -F '|' 'FNR == NR {keys[$7]; next} {if ($1 in keys) print $3}' file1.csv file2.csv
+
+
