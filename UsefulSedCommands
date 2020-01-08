@@ -67,3 +67,6 @@ sed -n '1,15 p' file
 =================================================================================================================
 #Replace new with on a single line separated by , and "" and also put curly braces around the line
 sed -e ':a;N;$!ba;s/\n/","/g' -e 's/.*/("&")/' file6.csv
+
+#incase in some db double quotes doesn't work use the second one it will replace double quotes with single quotes
+sed -e ':a;N;$!ba;s/\n/","/g' -e 's/.*/("&")/' -e "s/\"/'/g" file6.csv
