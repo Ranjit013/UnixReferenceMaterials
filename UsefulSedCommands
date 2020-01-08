@@ -70,3 +70,11 @@ sed -e ':a;N;$!ba;s/\n/","/g' -e 's/.*/("&")/' file6.csv
 
 #incase in some db double quotes doesn't work use the second one it will replace double quotes with single quotes
 sed -e ':a;N;$!ba;s/\n/","/g' -e 's/.*/("&")/' -e "s/\"/'/g" file6.csv
+
+=================================================================================================================
+#Sed command to add [ brackets to the beginning and end of file
+sed -e '1 s/^/[/' -e '$ s/$/]/'
+
+=================================================================================================================
+#Sed command to add double quoutes to each word of the file
+sed 's/[^ ][^ ]*/"&"/g'
