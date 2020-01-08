@@ -65,3 +65,5 @@ sed -n '/re/=' file
 sed -n '1,15 p' file
 
 =================================================================================================================
+#Replace new with on a single line separated by , and "" and also put curly braces around the line
+sed -e ':a;N;$!ba;s/\n/","/g' -e 's/.*/("&")/' file6.csv

@@ -386,4 +386,8 @@ awk -F, -v x=100 '$5>=x {print$0}' SampleCSVFile_2kb.csv
 #Simulate vlook commands using awk
 awk -F '|' 'FNR == NR {keys[$7]; next} {if ($1 in keys) print $3}' file1.csv file2.csv
 
+=============================================================================================================
+#Simulate vlook commands using awk withe negative scenarios
+awk '{k=$1 FS $2 FS $3 $4} NR==FNR{a[k]; next} !(k in a)' file4.csv file3.csv
+
 
