@@ -1,0 +1,6 @@
+ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxSome miscellaneous commands which can be useful for referencexxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+# This command cut column 1-2 from one file and 4-6 from other file and put it into a single
+
+ paste -d" " <(cut -d" " -f1-2 file3.csv) <(cut -d" " -f4-6 file4.csv)
+ cat <(cut -d" " -f1-2 file3.csv) <(cut -d" " -f4-6 file4.csv)
