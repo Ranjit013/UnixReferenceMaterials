@@ -4,3 +4,14 @@
 
  paste -d" " <(cut -d" " -f1-2 file3.csv) <(cut -d" " -f4-6 file4.csv)
  cat <(cut -d" " -f1-2 file3.csv) <(cut -d" " -f4-6 file4.csv)
+
+ ===================================================================================================================================================
+
+  comm  -1 -2  <(cut -d " " -f1-2 file3.csv | sort )  <(cut -d " " -f1-2 file4.csv | sort) //Display the comman rows between the two file
+  The flag -1 (suppress unique column of the first file)
+  The flag -2 (suppress unique column of the second file)
+  The flag -3 (suppress common column of the both the files)
+
+  ===================================================================================================================================================
+
+
