@@ -394,4 +394,12 @@ awk '{k=$1 FS $2 FS $3 $4} NR==FNR{a[k]; next} !(k in a)' file4.csv file3.csv
 Capitalize each word of a file
 awk '{for(i=1;i<=NF;i++){ $i=toupper(substr($i,1,1)) substr($i,2) }}1'
 
+=================================================================================================================
+To identify the blank rows in any columns
+awk -F"|" '{ for(N=1; N<=NF; N++) if($N=="") print}'
+
+=================================================================================================================
+To remove leading and trailing spaces in a csv file
+awk '{sub(/^ +/,""); gsub(/, /,",")}1'
+
 
