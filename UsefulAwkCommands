@@ -408,6 +408,7 @@ sed -E 's/(^|,)[[:blank:]]+/\1/g; s/[[:blank:]]+(,|$)/\1/g'
 =================================================================================================================
 #Awk command to print 4th line after the match
 awk 'c&&!--c;/Cardinal/{c=4}'
+awk 'c&&!--c; k&&!--k; r&&!--r; /Cardinal/{c=1; k=3; r=10}' //print 1st, 3rd and 10 line after the match
 =================================================================================================================
 #Awk command to identify the line number in a file separted by |
 awk -F'|' ' { for (i = 1; i <= NF; ++i) print i, $i; exit } ' file
