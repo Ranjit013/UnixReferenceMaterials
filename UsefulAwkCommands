@@ -413,3 +413,8 @@ awk 'c&&!--c; k&&!--k; r&&!--r; /Cardinal/{c=1; k=3; r=10}' //print 1st, 3rd and
 #Awk command to identify the line number in a file separted by |
 awk -F'|' ' { for (i = 1; i <= NF; ++i) print i, $i; exit } ' file
 =================================================================================================================
+# Awk print maximum in each group
+awk -F, '{if (a[$1] < $2)a[$1]=$2;}END{for(i in a){print i,a[i];}}' OFS=, file
+=================================================================================================================
+#Awk command to print the count of each type in a group
+awk -F, '{a[$1]++;}END{for (i in a){print i}}' file
