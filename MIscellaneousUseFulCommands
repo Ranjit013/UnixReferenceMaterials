@@ -13,5 +13,8 @@
   The flag -3 (suppress common column of the both the files)
 
   ===================================================================================================================================================
+#To get the memory utilization for the top 10 process
+ps axch -o cmd,%mem --sort=-%mem | head
 
-
+#To get the cpu utilization for the top 10 process
+ps axch -o cmd,%cpu --sort=-%cpu | head
