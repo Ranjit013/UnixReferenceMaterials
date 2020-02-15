@@ -1,0 +1,18 @@
+=====================================================Some Useful PowerShell scripts=======================================================
+# This Scripts copy the files from one location to the other location by creating a zip file
+$fileContents = get-content C:\Users\Ranjit\test_json\achiveexpr\properties.txt
+$properties = @{}
+foreach($line in $fileContents)
+ {
+     write-host $line
+     # ,2 tells split to return two substrings (a single split) per line
+     $words = $line.Split('=',2)
+     $properties.add($words[0].Trim(), $words[1].Trim())
+ }
+$compress=@{
+ Path = Get-ChildItem $properties.SOURCE
+ CompressionLevel = "Fastest"
+ Force = $True
+ DestinationPath=$properties.DEST
+}
+Compress-Archive @compress
