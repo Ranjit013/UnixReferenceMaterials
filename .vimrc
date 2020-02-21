@@ -9,3 +9,5 @@ map <A-Left> <C-W>h
 map <A-Right> <C-W>l
 set background=dark
 set ruler
+nmap <silent> <C-N> :cn<CR>zv
+nmap <silent> <C-P> :cp<CR>zv
