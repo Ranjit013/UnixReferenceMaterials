@@ -422,3 +422,7 @@ awk -F, '{a[$1]++;}END{for (i in a){print i}}' file
 =================================================================================================================
 #Awk command to find the rows present based on key value
 awk -F ',' 'FNR == NR {keys[$1FS$2]; next} {if ($1 FS $7 in keys) print $0}' <(awk -F"," '{print$1 FS $7}' SampleCSVFile_2kb.csv | awk 'NF==1') <(awk -F"," '{print$0}' SampleCSVFile_2kb_copy.csv)
+
+=================================================================================================================
+ #Awk command to simulate Awk command and print NAN if the key is not present
+ awk 'BEGIN   {FS=OFS=","} FNR==NR {a[$1]=$2; next} {print $1, (($1 in a)?a[$1]:"NAN")}' file1 file2
